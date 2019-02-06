@@ -1,38 +1,9 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
-
-let bookList = [
-  {"title": "Hunger", "author": "Roxane Gay"},
-  {"title": "The Sun", "author": "Hemingway", "pages": 250},
-  {"title": "Animal Farm", "author": "Orwell", "pages": 120},
-  {"title": "Cat's Cradle", "author": "Kurt Von", "pages": 200}
-]
-
-const Book = ({title="No Title Provided", author= "No Author", pages=0, freeBookMark}) => {
-  return (
-    <section>
-      <h2>{title}</h2>
-      <p>by: {author}</p>
-      <p>Pages: {pages} page</p>
-      <p>Free Bookmark Today: {freeBookMark ? "yes!" : "no!"}</p>
-    </section>
-  )
-}
-
-const Hiring = () => {
-  return (
-    <div>
-      <p>Hiring! Go to www.library.com/hiring for more info</p>
-    </div>
-)}
-
-const NotHiring = () => {
-  return (
-    <div>
-      <p>We not though.</p>
-  </div>
-)}
+import { Book } from './Book'
+import { Hiring } from './Hiring'
+import { NotHiring } from './NotHiring'
 
 class Library extends Component {
 
@@ -130,10 +101,16 @@ class Library extends Component {
 //   }
 // }
 
+// THE RIGHT TYPES ARE PROVIDED
+Library.propTypes = {
+  books: PropTypes.array
+}
 
+Book.propTypes = {
+  title: propTypes.string,
+  author: propTypes.string,
+  pages: propTypes.number,
+  freeBookMark: propTypes.bool
+}
 
-
-ReactDOM.render(
-    <Library books={bookList} />,
-  document.getElementById('root')
-)
+export default Library
