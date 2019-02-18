@@ -5,7 +5,6 @@ const bodyParser = require('body-parser');
 
 var db = require('./database');
 
-
 // gives us information if we are working in production or development
 const ENV = process.env.NODE_ENV;
 
@@ -17,6 +16,9 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(bodyParser.json());
+
+app.use('/api/cities', require('./api/cities'));
+app.use('/api/weather', require('./api/weather'));
 
 // add code to make express responsive to requests
 // express listen on a port of our server.  when a request is made, express middleware will respond to the requests

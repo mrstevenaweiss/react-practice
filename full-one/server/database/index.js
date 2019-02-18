@@ -1,5 +1,5 @@
 // interface that will interact with Postgres instance (local or on Heroku)
-import { Pool } = require('pg')
+var { Pool } = require('pg');
 
 const CONNECTION_STRING = process.env.DATABASE_URL || 'postgresql://postgres:postgres@localhost:5432/weatherdb';
 const SSL = process.env.NODE_ENV === 'production';
@@ -18,7 +18,7 @@ class Database {
     });
   }
 
-  query (query, ...args) {
+  query(query, ...args) {
     this._pool.connect((err, client, done) => {
       if (err) throw err;
       const params = args.length === 2 ? args[0] : [];
@@ -36,7 +36,7 @@ class Database {
 
   }
 
-  end () {
+  end() {
     this._pool.end();
   }
 }
