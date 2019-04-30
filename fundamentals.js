@@ -1,3 +1,11 @@
+// The Basics.  
+// 
+// Outside of JSX, regular Javascript/ES6 can be written.
+// Keep STATE (useful data) in parent components. 
+// Pass down STATE from parent. 
+//  Receive STATE as properties (PROPS).  
+
+
 // create a simple jsx element
 
 
